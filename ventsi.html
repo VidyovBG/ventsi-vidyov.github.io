@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Венци Видьов | Портфолио</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Стилизирана навигация */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Герой секция */
+        #hero {
+            padding: 12rem 2rem 6rem;
+            text-align: center;
+            background: linear-gradient(45deg, #f8fafc, #ffffff);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-highlight {
+            color: var(--primary);
+        }
+
+        /* Секция с проекти */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        /* Секция със сертификати */
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--light);
+        }
+
+        /* Секция с умения */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Контактна форма */
+        .contact-section {
+            background: white;
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Венци Видьов</a>
+            <div class="nav-links">
+                <a href="#hero">Начало</a>
+                <a href="#projects">Проекти</a>
+                <a href="#certificates">Сертификати</a>
+                <a href="#contact">Контакти</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <h1 class="hero-title" data-aos="fade-up">
+            Здравейте, аз съм <span class="hero-highlight">Венци Видьов</span><br>
+            Ученик & Разработчик
+        </h1>
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+            <p>📍 Ямбол, България | 🎂 11 Януари 2008</p>
+        </div>
+    </section>
+
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/design/PIIzW5jzzf0oXkTNZ84szL/SoftUni?node-id=79-18&embed-host=share" allowfullscreen></iframe>
+    
+    <section id="projects">
+        <h2 data-aos="fade-up">Мои Проекти</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up">
+                <h3>Ученически Помощник</h3>
+                <div class="project-tag">Уеб Разработка</div>
+                <p>zauchenikabg.eu</p>
+                <p>Платформа за помощ на български ученици</p>
+            </div>
+            <!-- Добавете още проекти -->
+        </div>
+    </section>
+
+    <section id="certificates">
+        <h2 data-aos="fade-up">Сертификати</h2>
+        <div class="certificates-container">
+            <div class="certificate-card" data-aos="zoom-in">
+                <img src="certificate.jpg" class="certificate-image" alt="Сертификат">
+                <div class="certificate-info">
+                    <h4>Frontend Development</h4>
+                    <p>SoftUni | 2023</p>
+                </div>
+            </div>
+            <!-- Добавете още сертификати -->
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 data-aos="fade-up">Умения</h2>
+        <div class="skills-container">
+            <div class="skill-item" data-aos="fade-up">
+                <i class="fab fa-html5 skill-icon"></i>
+                <h3>HTML5</h3>
+                <p>Напреднало ниво</p>
+            </div>
+            <!-- Добавете още умения -->
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 data-aos="fade-up">Свържи се с мен</h2>
+        <form class="contact-form">
+            <input type="text" class="form-input" placeholder="Име" required>
+            <input type="email" class="form-input" placeholder="Имейл" required>
+            <textarea class="form-input" rows="5" placeholder="Съобщение" required></textarea>
+            <button type="submit" class="btn-primary">Изпрати съобщение</button>
+        </form>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
